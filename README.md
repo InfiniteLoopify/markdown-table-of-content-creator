@@ -7,6 +7,7 @@ Clone or download file to computer. Run file from command line using python.
 
 `python CreateTOC.py --path <PATH TO REPO>`
 
+Following are the arguments that can be passed:
 
 `--path` specify the path to the repository for which Table of Content is to be created.
 
@@ -42,3 +43,4 @@ For more details, run script with `-h` or `--help` flag.
     1. [Heading 4.1](Heading%204/Heading%204.1)
 
 
+Similarly another example is I have used this in [My Data-Structures Repository](https://github.com/InfiniteLoopify/data-structures) in `README.md`
