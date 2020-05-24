@@ -58,6 +58,8 @@ def main():
     parser.add_argument(
         "-i", "--ignore", help="folder names to ignore white seeking", nargs="*")
     parser.add_argument(
+        "-s", "--similar", help="output file is generated in same directory as the path", action="store_true")
+    parser.add_argument(
         "-v", "--verbose", help="print additional information", action="store_true")
     args = parser.parse_args()
 
@@ -67,6 +69,7 @@ def main():
     output = "README.md"
     ignore = [".git"]
 
+
     # update arguments if passed
     path = args.path
     if args.depth:
@@ -75,6 +78,12 @@ def main():
         output = args.output
     if args.ignore:
         ignore = args.ignore
+    
+    # output file is generated in same directory as the path
+    if args.similar:
+        if not path == "":
+            seperator = "" if path[-1] == "/" else "/"
+            output = seperator.join([path, output])
 
     # generate TOC in markdown
     toc = createTOC(path, depth, ignore=ignore)
