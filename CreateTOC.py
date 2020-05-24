@@ -74,8 +74,6 @@ def main():
     path = args.path
     if args.depth:
         depth = int(args.depth)
-    if args.output:
-        output = args.output
     if args.ignore:
         ignore = args.ignore
     
@@ -84,6 +82,8 @@ def main():
         if not path == "":
             seperator = "" if path[-1] == "/" else "/"
             output = seperator.join([path, output])
+    elif args.output:
+        output = args.output
 
     # generate TOC in markdown
     toc = createTOC(path, depth, ignore=ignore)
